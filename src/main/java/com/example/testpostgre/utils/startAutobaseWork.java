@@ -18,7 +18,8 @@ public class startAutobaseWork {
     public void start() throws InterruptedException {
         log.info("Autobase starts working");
         int day=1;
-        while (true){
+        int number=0;
+        while (number < 10){
             createOrderService.createOrders(10);
             log.info("Day "+day+" :");
             log.info("Autobase orders are created");
@@ -29,6 +30,7 @@ public class startAutobaseWork {
             createRouteService.checkRepairtruck();
             log.info("Autobase routs are finished");
             day++;
+            ++number;
         }
     }
 
