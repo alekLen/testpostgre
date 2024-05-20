@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> UpdateCourse </title>
+</head>
+<body>
+<th:block th:include="/fragments/menu"> </th:block>
+
+<th:block th:include="/fragments/menu1"> </th:block>
+
+<h3>Машины в ремонте:</h3>
+
+<table border = "1">
+
+    <tr>
+        <th>Машина </th>
+        <th>Осталось дней в ремонте</th>
+    </tr>
+    <tr th:each = "truck : ${truckrepair}">
+        <td th:utext="${truck.getTruckId().getName()}">...</td>
+        <td th:utext="${truck.day}">...</td>
+
+    </tr>
+</table>
+
+</body>
+
+</html>

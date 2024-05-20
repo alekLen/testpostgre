@@ -1,0 +1,25 @@
+<div xmlns:th="http://www.thymeleaf.org"
+     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
+
+
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN')   }" th:href="@{/createDriver}">Добавить водителя </a>
+
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN')}" > &nbsp; | &nbsp; </a>
+
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN')   }" th:href="@{/updateDriver}">Изменить уровень опыта водителя </a>
+
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN')}" > &nbsp; | &nbsp; </a>
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN')   }" th:href="@{/destinations/get}">Все пункты назначения</a>
+
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN')}" > &nbsp; | &nbsp; </a>
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN')   }" th:href="@{/orders/get}">Полученные заявки</a>
+
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN')}" > &nbsp; | &nbsp; </a>
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN')   }" th:href="@{/routes/get}">Распределенные заявки</a>
+
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN')}" > &nbsp; | &nbsp; </a>
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN')   }" th:href="@{/truckrepair/get}">Машины в ремонте</a>
+
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN')}" > &nbsp; | &nbsp; </a>
+
+</div>
