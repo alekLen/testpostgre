@@ -14,7 +14,7 @@
 
 spring:
     datasource:
-        url: jdbc:postgresql://postgre-serv.postgres.database.azure.com/newData
+        url: jdbc:postgresql://postgre-serv.postgres.database.azure.com:5432/newData
 
         username: adminElena
         password: Oleg+Lena=22
@@ -25,6 +25,6 @@ spring:
         user: adminElena
         password: Oleg+Lena=22
         schemas: public
-        url: jdbc:postgresql://postgre-serv.postgres.database.azure.com/newData
+        url: jdbc:postgresql://postgre-serv.postgres.database.azure.com:5432/newData
 
 
