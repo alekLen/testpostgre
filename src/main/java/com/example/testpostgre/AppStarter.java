@@ -21,7 +21,7 @@ public class AppStarter {
     public ApplicationRunner init() {
         log.info("ApplicationRunner has started");
         return args -> {
-            autobaseInitializer.autobaseInitialize();
+           // autobaseInitializer.autobaseInitialize();
             startAutobase.start();
         };
     }
