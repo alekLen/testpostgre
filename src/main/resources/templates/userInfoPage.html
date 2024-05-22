@@ -5,8 +5,43 @@
 </head>
 <body>
 
-<th:block th:include="/fragments/menu"></th:block>
-<th:block th:include="/fragments/menu1"></th:block>
+<div>
+
+  <a th:href="@{/}">Home</a>
+
+  &nbsp; | &nbsp;
+
+  <a th:if="${#request.userPrincipal != null}" th:href="@{/userInfo}">Info </a>
+
+  <a th:if="${#request.userPrincipal != null}" > &nbsp; | &nbsp; </a>
+
+
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN')  || #request.isUserInRole('ROLE_DIRECTOR') }" th:href="@{/drivers/get}">Список водителей </a>
+
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN')|| #request.isUserInRole('ROLE_DIRECTOR')}" > &nbsp; | &nbsp; </a>
+
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN')  || #request.isUserInRole('ROLE_DIRECTOR') }" th:href="@{/trucks/get}">Список машин </a>
+
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN')|| #request.isUserInRole('ROLE_DIRECTOR')}" > &nbsp; | &nbsp; </a>
+
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN') || #request.isUserInRole('ROLE_DIRECTOR')  }" th:href="@{/statistic}">Статистика </a>
+
+  <a th:if="${#request.isUserInRole('ROLE_ADMIN') || #request.isUserInRole('ROLE_DIRECTOR')}" > &nbsp; | &nbsp; </a>
+
+
+  <a th:if="${ #request.isUserInRole('ROLE_DIRECTOR') || #request.isUserInRole('ROLE_ADMIN')   }" th:href="@{/salary/get}">Зарплатная ведомость </a>
+
+  <a th:if="${ #request.isUserInRole('ROLE_DIRECTOR') || #request.isUserInRole('ROLE_ADMIN')}" > &nbsp; | &nbsp; </a>
+
+  <a th:if="${#request.isUserInRole('ROLE_DRIVER') || #request.isUserInRole('ROLE_DIRECTOR') || #request.isUserInRole('ROLE_ADMIN')  }" th:href="@{/salaryDriver}">Зарплата водителя</a>
+
+  <a th:if="${#request.isUserInRole('ROLE_DRIVER') || #request.isUserInRole('ROLE_DIRECTOR') || #request.isUserInRole('ROLE_ADMIN') }" > &nbsp; | &nbsp; </a>
+
+
+
+  <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Выйти</a>
+
+</div>
 
 <h2>Info Page</h2>
 <h3>Welcome : <span th:utext="${#request.userPrincipal.name}"></span></h3>
