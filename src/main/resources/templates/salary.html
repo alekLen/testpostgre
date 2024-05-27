@@ -5,9 +5,68 @@
     <title th:utext="${title}"></title>
 </head>
 <body>
-<th:block th:include="/fragments/menu"> </th:block>
+<div>
 
-<th:block th:include="/fragments/menu1"> </th:block>
+    <a th:href="@{/}">Главная</a>
+
+    &nbsp; | &nbsp;
+
+    <a th:if="${#request.userPrincipal != null}" th:href="@{/userInfo}">Кабинет </a>
+
+    <a th:if="${#request.userPrincipal != null}" > &nbsp; | &nbsp; </a>
+
+
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN')  || #request.isUserInRole('ROLE_DIRECTOR') }" th:href="@{/drivers/get}">Список водителей </a>
+
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN')|| #request.isUserInRole('ROLE_DIRECTOR')}" > &nbsp; | &nbsp; </a>
+
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN')  || #request.isUserInRole('ROLE_DIRECTOR') }" th:href="@{/trucks/get}">Список машин </a>
+
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN')|| #request.isUserInRole('ROLE_DIRECTOR')}" > &nbsp; | &nbsp; </a>
+
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN') || #request.isUserInRole('ROLE_DIRECTOR')  }" th:href="@{/statistic}">Статистика </a>
+
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN') || #request.isUserInRole('ROLE_DIRECTOR')}" > &nbsp; | &nbsp; </a>
+
+
+    <a th:if="${ #request.isUserInRole('ROLE_DIRECTOR') || #request.isUserInRole('ROLE_ADMIN')   }" th:href="@{/salary/get}">Зарплатная ведомость </a>
+
+    <a th:if="${ #request.isUserInRole('ROLE_DIRECTOR') || #request.isUserInRole('ROLE_ADMIN')}" > &nbsp; | &nbsp; </a>
+
+    <a th:if="${#request.isUserInRole('ROLE_DRIVER') || #request.isUserInRole('ROLE_DIRECTOR') || #request.isUserInRole('ROLE_ADMIN')  }" th:href="@{/salaryDriver}">Зарплата водителя</a>
+
+    <a th:if="${#request.isUserInRole('ROLE_DRIVER') || #request.isUserInRole('ROLE_DIRECTOR') || #request.isUserInRole('ROLE_ADMIN') }" > &nbsp; | &nbsp; </a>
+
+
+
+    <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Выйти</a>
+
+</div>
+
+<div >
+
+
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN')   }" th:href="@{/createDriver}">Добавить водителя </a>
+
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN')}" > &nbsp; | &nbsp; </a>
+
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN')   }" th:href="@{/updateDriver}">Изменить уровень опыта водителя </a>
+
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN')}" > &nbsp; | &nbsp; </a>
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN')   }" th:href="@{/destinations/get}">Все пункты назначения</a>
+
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN')}" > &nbsp; | &nbsp; </a>
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN')   }" th:href="@{/orders/get}">Полученные заявки</a>
+
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN')}" > &nbsp; | &nbsp; </a>
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN')   }" th:href="@{/routes/get}">Распределенные заявки</a>
+
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN')}" > &nbsp; | &nbsp; </a>
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN')   }" th:href="@{/truckrepair/get}">Машины в ремонте</a>
+
+    <a th:if="${#request.isUserInRole('ROLE_ADMIN')}" > &nbsp; | &nbsp; </a>
+
+</div>
 
 
 <h3>Зарплатная ведомость:</h3>
